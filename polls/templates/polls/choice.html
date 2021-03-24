@@ -9,8 +9,15 @@
 </head>
 <body>
     <h1>{{question.question_text}}</h1>
+    <h1>{{ choice_id }}</h1>
+    <form action="{% url 'polls:vote' book.name_book question.book_id %}" method="post">
+    {% csrf_token %}
     {% for choice in question.choice_set.all %}
-    <h2>{{choice.choice_text}}</h2>
+    <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{choice.id}}">
+    <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label>
+        <br>
     {% endfor %}
+    <input type="submit" value="Vote">
+    </form>
 </body>
 </html>
