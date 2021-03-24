@@ -9,7 +9,7 @@
 </head>
 <body>
     <h1>{{book.name_book}}</h1>
-    <h2><a href="{{question.book_id}}/">{{question.question_text}}</a></h2>
+    <h2><a href="{% url 'polls:choice' book.name_book question.book_id %}">{{question.question_text}}</a></h2>
 
 </body>
 </html>

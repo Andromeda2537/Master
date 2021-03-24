@@ -19,7 +19,7 @@
             {% for book in books %}
         <tr>
             <td>{{book.author}}</td>
-            <td><a href="{{book}}">{{book.name_book}}</a></td>
+            <td><a href="{% url 'polls:content' book.name_book %}">{{book.name_book}}</a></td>
         </tr>
         {% endfor %}
     </tbody>
